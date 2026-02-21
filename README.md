@@ -9,12 +9,15 @@ This project demonstrates clean architecture, DAO pattern usage, and proper JDBC
 
 Current Completion: **Create + Read Implemented**
 
-| Operation | Status |
-|-----------|--------|
-| Create    | ✅ Implemented |
-| Read      | ✅ Implemented |
-| Update    | ⏳ Pending |
-| Delete    | ⏳ Pending |
+Operation    -   Status
+
+( Create   ✅ Implemented )
+
+( Read     ✅ Implemented )
+
+( Update   ⏳ Pending )
+
+( Delete   ⏳ Pending )
 
 ---
 
