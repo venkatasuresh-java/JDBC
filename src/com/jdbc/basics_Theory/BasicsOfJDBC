@@ -1,0 +1,92 @@
+Steps to Work with JDBC :
+
+1. Import Package --> java.sql.*;
+
+2. Load Driver --> Since JDBC 4.0 (Java 6+), drivers are auto-loaded. 
+   The driver registers itself automatically when the JAR is added.
+
+3. Get Connection --> 
+   Connection con = DriverManager.getConnection("url", "root", "password");
+
+4. Create Statement --> 
+   PreparedStatement pstmt =
+   con.prepareStatement("SELECT * FROM students");
+
+5. Execute Query --> 
+   ResultSet rs =
+   stmt.executeQuery("SELECT * FROM students");
+
+   int rows =
+   stmt.executeUpdate("INSERT INTO students VALUES(1,'Rahul')");
+
+6. Process Result --> 
+   while(rs.next()) {
+       System.out.println(rs.getInt(1));
+       System.out.println(rs.getString(2));
+   }
+
+7. Close Connection --> 
+   rs.close();
+   stmt.close();
+   con.close();
+
+
+
+
+
+
+
+Example Code :-
+==================
+
+package com.jdbc.basics;
+
+
+Step 1 --> Import Package 	--> java.sql.*;
+import java.sql.*; 
+
+
+public class Basics {
+	public static void main(String[] args) throws Exception {
+		Basics obj = new Basics();
+		obj.method();
+	}
+
+
+	public void method() throws Exception {
+
+		String url = "jdbc:mysql://localhost:3306/jdbc";
+		String uname = "root";
+		String pass = "0143";
+		
+ 		Step 2 --> Since JDBC 4.0 (Java 6+), drivers are auto-loaded
+
+ 		step 3 --> Get Connection
+		Connection con = DriverManager.getConnection(url, uname, pass);
+		System.out.println("Connected Successfully \n");
+
+		 step 4--> create statement
+		Statement st = con.createStatement();
+		
+
+ 		step 5 --> Execute Query
+		String query = "select * from jdbc_learning";
+		ResultSet rs = st.executeQuery(query);
+
+		step 6 --> process result
+		while (rs.next()) {
+			int id = rs.getInt(1);
+			String name = rs.getString(2);
+			System.out.println("     ID : " + id + "    | " + "   Name : " + name);
+		}
+		
+		
+
+		step 7 --> close the connections
+		rs.close();
+		st.close();
+		con.close();
+		System.out.println("\n Connections Closed Sucessfully ");
+
+	}
+}
