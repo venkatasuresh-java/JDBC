@@ -1,4 +1,4 @@
-package com.jdbc.dao;
+package com.jdbc.model;
 
 public class Student {
 	private int id;
